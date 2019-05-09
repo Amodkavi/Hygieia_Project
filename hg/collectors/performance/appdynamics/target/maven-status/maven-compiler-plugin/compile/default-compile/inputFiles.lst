@@ -1,0 +1,10 @@
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/performance/appdynamics/src/main/java/com/capitalone/dashboard/repository/AppdynamicsCollectorRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/performance/appdynamics/src/main/java/com/capitalone/dashboard/collector/DefaultAppdynamicsClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/performance/appdynamics/src/main/java/com/capitalone/dashboard/repository/AppDynamicsApplicationRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/performance/appdynamics/src/main/java/com/capitalone/dashboard/Application.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/performance/appdynamics/src/main/java/com/capitalone/dashboard/model/AppdynamicsCollector.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/performance/appdynamics/src/main/java/com/capitalone/dashboard/collector/AppdynamicsClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/performance/appdynamics/src/main/java/com/capitalone/dashboard/collector/AppdynamicsCollectorTask.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/performance/appdynamics/src/main/java/com/capitalone/dashboard/collector/AppdynamicsSettings.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/performance/appdynamics/src/main/java/com/capitalone/dashboard/collector/RestOperationsSupplier.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/performance/appdynamics/src/main/java/com/capitalone/dashboard/model/AppdynamicsApplication.java

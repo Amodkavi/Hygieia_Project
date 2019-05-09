@@ -1,0 +1,8 @@
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/jenkins-codequality/src/test/java/com/capitalone/dashboard/jenkins/JenkinsJobTest.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/jenkins-codequality/src/test/java/com/capitalone/dashboard/collector/HttpJenkinsClientTest.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/jenkins-codequality/src/test/java/com/capitalone/dashboard/utils/CodeMetricsCodeQualitConverterTest.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/jenkins-codequality/src/test/java/com/capitalone/dashboard/jenkins/JenkinsPredicateTest.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/jenkins-codequality/src/test/java/com/capitalone/dashboard/collector/ResponseConversionTest.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/jenkins-codequality/src/test/java/com/capitalone/dashboard/utils/CodeQualityMetricsConverterTest.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/jenkins-codequality/src/test/java/com/capitalone/dashboard/utils/CodeQualityDataServiceTest.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/jenkins-codequality/src/test/java/com/capitalone/dashboard/collector/JenkinsCodeQualityCollectorTaskTest.java

@@ -1,0 +1,16 @@
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/collector/DefaultJiraClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/utils/Utilities.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/model/FeatureEpicResult.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/model/Sprint.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/repository/FeatureCollectorRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/model/FeatureCollector.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/model/FeatureBoard.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/Application.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/collector/FeatureCollectorTask.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/model/Epic.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/model/JiraMode.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/collector/SprintFormatter.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/model/IssueResult.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/repository/FeatureBoardRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/collector/FeatureSettings.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/jira/src/main/java/com/capitalone/dashboard/collector/JiraClient.java

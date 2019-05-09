@@ -1,0 +1,10 @@
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/UI-tests/src/test/java/com/capitalone/dashboard/uitest/definitions/CommonDefinitions.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/UI-tests/src/test/java/com/capitalone/dashboard/uitest/utils/TestPropertiesManager.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/UI-tests/src/test/java/com/capitalone/dashboard/uitest/pages/HomePage.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/UI-tests/src/test/java/com/capitalone/dashboard/uitest/pages/DashboardPage.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/UI-tests/src/test/java/com/capitalone/dashboard/uitest/definitions/DeleteDashboardDefinitions.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/UI-tests/src/test/java/com/capitalone/dashboard/uitest/definitions/LoginDefinitions.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/UI-tests/src/test/java/com/capitalone/dashboard/uitest/definitions/CreateDashboardDefinitions.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/UI-tests/src/test/java/com/capitalone/dashboard/uitest/steps/UserSteps.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/UI-tests/src/test/java/com/capitalone/dashboard/uitest/pages/LoginPage.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/UI-tests/src/test/java/com/capitalone/dashboard/uitest/UITestRunner.java

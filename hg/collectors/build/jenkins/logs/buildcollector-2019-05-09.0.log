@@ -1,0 +1,74 @@
+2019-05-09 12:55:39,407 INFO  c.c.d.collector.DefaultHudsonClient - Fetching jobs 0/1 pageSize 10...
+2019-05-09 12:55:39,415 INFO  c.c.d.collector.DefaultHudsonClient - Fetching jobs 0/2 pageSize 10...
+2019-05-09 12:55:39,513 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,513 INFO  c.c.d.collector.CollectorTask - server1
+2019-05-09 12:55:39,513 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,515 INFO  c.c.d.collector.CollectorTask - Fetched jobs                     0s
+2019-05-09 12:55:39,515 INFO  c.c.d.collector.CollectorTask - New jobs                0        0s
+2019-05-09 12:55:39,515 INFO  c.c.d.collector.CollectorTask - New builds              0        0s
+2019-05-09 12:55:39,516 INFO  c.c.d.collector.CollectorTask - New configs             0        0s
+2019-05-09 12:55:39,516 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:39,518 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,518 INFO  c.c.d.collector.CollectorTask - server1
+2019-05-09 12:55:39,518 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,518 INFO  c.c.d.collector.CollectorTask - Fetched jobs                     0s
+2019-05-09 12:55:39,518 INFO  c.c.d.collector.CollectorTask - New jobs                1        0s
+2019-05-09 12:55:39,518 INFO  c.c.d.collector.CollectorTask - New builds              0        0s
+2019-05-09 12:55:39,519 INFO  c.c.d.collector.CollectorTask - New configs             0        0s
+2019-05-09 12:55:39,519 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:39,523 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,523 INFO  c.c.d.collector.CollectorTask - server1
+2019-05-09 12:55:39,523 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,523 INFO  c.c.d.collector.CollectorTask - Fetched jobs                     0s
+2019-05-09 12:55:39,524 INFO  c.c.d.collector.CollectorTask - New jobs                0        0s
+2019-05-09 12:55:39,524 INFO  c.c.d.collector.CollectorTask - New builds              0        0s
+2019-05-09 12:55:39,524 INFO  c.c.d.collector.CollectorTask - New configs             0        0s
+2019-05-09 12:55:39,524 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:39,526 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,527 INFO  c.c.d.collector.CollectorTask - server1
+2019-05-09 12:55:39,527 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,527 INFO  c.c.d.collector.CollectorTask - Fetched jobs                     0s
+2019-05-09 12:55:39,527 INFO  c.c.d.collector.CollectorTask - New jobs                1        0s
+2019-05-09 12:55:39,527 INFO  c.c.d.collector.CollectorTask - New builds              0        0s
+2019-05-09 12:55:39,527 INFO  c.c.d.collector.CollectorTask - New configs             0        0s
+2019-05-09 12:55:39,528 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:39,529 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,530 INFO  c.c.d.collector.CollectorTask - server1
+2019-05-09 12:55:39,530 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,530 INFO  c.c.d.collector.CollectorTask - Fetched jobs                     0s
+2019-05-09 12:55:39,530 INFO  c.c.d.collector.CollectorTask - New jobs                2        0s
+2019-05-09 12:55:39,538 INFO  c.c.d.collector.CollectorTask - New builds              0        0s
+2019-05-09 12:55:39,539 INFO  c.c.d.collector.CollectorTask - New configs             0        0s
+2019-05-09 12:55:39,539 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:39,541 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,541 INFO  c.c.d.collector.CollectorTask - server1
+2019-05-09 12:55:39,541 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,541 INFO  c.c.d.collector.CollectorTask - Fetched jobs                     0s
+2019-05-09 12:55:39,542 INFO  c.c.d.collector.CollectorTask - New jobs                1        0s
+2019-05-09 12:55:39,542 INFO  c.c.d.collector.CollectorTask - New builds              0        0s
+2019-05-09 12:55:39,542 INFO  c.c.d.collector.CollectorTask - New configs             0        0s
+2019-05-09 12:55:39,542 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:39,544 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,544 INFO  c.c.d.collector.CollectorTask - server1
+2019-05-09 12:55:39,544 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,544 INFO  c.c.d.collector.CollectorTask - Fetched jobs                     0s
+2019-05-09 12:55:39,545 INFO  c.c.d.collector.CollectorTask - New jobs                1        0s
+2019-05-09 12:55:39,545 INFO  c.c.d.collector.CollectorTask - New builds              1        0s
+2019-05-09 12:55:39,545 INFO  c.c.d.collector.CollectorTask - New configs             0        0s
+2019-05-09 12:55:39,546 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:39,548 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,548 INFO  c.c.d.collector.CollectorTask - server1
+2019-05-09 12:55:39,548 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,548 INFO  c.c.d.collector.CollectorTask - Fetched jobs                     0s
+2019-05-09 12:55:39,548 INFO  c.c.d.collector.CollectorTask - New jobs                2        0s
+2019-05-09 12:55:39,549 INFO  c.c.d.collector.CollectorTask - New builds              0        0s
+2019-05-09 12:55:39,549 INFO  c.c.d.collector.CollectorTask - New configs             0        0s
+2019-05-09 12:55:39,549 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:39,551 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,551 INFO  c.c.d.collector.CollectorTask - server1
+2019-05-09 12:55:39,551 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-05-09 12:55:39,551 INFO  c.c.d.collector.CollectorTask - Fetched jobs                     0s
+2019-05-09 12:55:39,551 INFO  c.c.d.collector.CollectorTask - New jobs                0        0s
+2019-05-09 12:55:39,552 INFO  c.c.d.collector.CollectorTask - New builds              0        0s
+2019-05-09 12:55:39,552 INFO  c.c.d.collector.CollectorTask - New configs             0        0s
+2019-05-09 12:55:39,552 INFO  c.c.d.collector.CollectorTask - Finished                         0s

@@ -1,0 +1,44 @@
+2019-04-24 18:02:08,305 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:08,308 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:02:08,308 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:08,308 INFO  c.c.d.collector.CollectorTask - Collecting Incidents
+2019-04-24 18:02:08,311 INFO  c.c.d.collector.HpsmCollectorTask - Inserted Incident Item Count: 4
+2019-04-24 18:02:08,311 INFO  c.c.d.collector.HpsmCollectorTask - Updated Incident Item Count: 0
+2019-04-24 18:02:08,313 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:02:08,322 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:08,322 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:02:08,322 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:08,322 INFO  c.c.d.collector.CollectorTask - Collecting Changes
+2019-04-24 18:02:08,323 INFO  c.c.d.collector.HpsmCollectorTask - Inserted ChangeOrder Item Count: 4
+2019-04-24 18:02:08,323 INFO  c.c.d.collector.HpsmCollectorTask - Updated ChangeOrder Item Count: 0
+2019-04-24 18:02:08,323 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:02:08,331 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:08,331 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:02:08,331 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:08,331 INFO  c.c.d.collector.CollectorTask - Collecting Apps
+2019-04-24 18:02:08,332 INFO  c.c.d.collector.HpsmCollectorTask - Inserted Cmdb Item Count: 4
+2019-04-24 18:02:08,333 INFO  c.c.d.collector.HpsmCollectorTask - Updated Cmdb Item Count: 0
+2019-04-24 18:02:08,333 INFO  c.c.d.collector.HpsmCollectorTask - Invalid Cmdb Item Count: 0
+2019-04-24 18:02:08,333 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:41:33,807 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:33,810 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:41:33,810 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:33,810 INFO  c.c.d.collector.CollectorTask - Collecting Incidents
+2019-04-24 18:41:33,812 INFO  c.c.d.collector.HpsmCollectorTask - Inserted Incident Item Count: 4
+2019-04-24 18:41:33,812 INFO  c.c.d.collector.HpsmCollectorTask - Updated Incident Item Count: 0
+2019-04-24 18:41:33,815 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:41:33,824 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:33,824 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:41:33,824 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:33,824 INFO  c.c.d.collector.CollectorTask - Collecting Changes
+2019-04-24 18:41:33,825 INFO  c.c.d.collector.HpsmCollectorTask - Inserted ChangeOrder Item Count: 4
+2019-04-24 18:41:33,826 INFO  c.c.d.collector.HpsmCollectorTask - Updated ChangeOrder Item Count: 0
+2019-04-24 18:41:33,826 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:41:33,836 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:33,836 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:41:33,836 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:33,836 INFO  c.c.d.collector.CollectorTask - Collecting Apps
+2019-04-24 18:41:33,837 INFO  c.c.d.collector.HpsmCollectorTask - Inserted Cmdb Item Count: 4
+2019-04-24 18:41:33,837 INFO  c.c.d.collector.HpsmCollectorTask - Updated Cmdb Item Count: 0
+2019-04-24 18:41:33,837 INFO  c.c.d.collector.HpsmCollectorTask - Invalid Cmdb Item Count: 0
+2019-04-24 18:41:33,837 INFO  c.c.d.collector.CollectorTask - Finished                         0s

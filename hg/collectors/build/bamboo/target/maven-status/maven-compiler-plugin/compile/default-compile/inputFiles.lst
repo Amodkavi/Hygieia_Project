@@ -1,0 +1,10 @@
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/bamboo/src/main/java/com/capitalone/dashboard/collector/BambooSettings.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/bamboo/src/main/java/com/capitalone/dashboard/collector/DefaultBambooClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/bamboo/src/main/java/com/capitalone/dashboard/collector/BambooCollectorTask.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/bamboo/src/main/java/com/capitalone/dashboard/repository/BambooJobRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/bamboo/src/main/java/com/capitalone/dashboard/model/BambooJob.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/bamboo/src/main/java/com/capitalone/dashboard/repository/BambooCollectorRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/bamboo/src/main/java/com/capitalone/dashboard/collector/BambooClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/bamboo/src/main/java/com/capitalone/dashboard/model/BambooCollector.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/bamboo/src/main/java/com/capitalone/dashboard/collector/RestOperationsSupplier.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/build/bamboo/src/main/java/com/capitalone/dashboard/Application.java

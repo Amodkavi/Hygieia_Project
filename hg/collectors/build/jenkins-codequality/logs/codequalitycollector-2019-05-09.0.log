@@ -1,0 +1,28 @@
+2019-05-09 12:55:46,006 INFO  c.c.d.collector.CollectorTask - examined jobs           1        0s
+2019-05-09 12:55:46,009 INFO  c.c.d.collector.CollectorTask - new data                0        0s
+2019-05-09 12:55:46,009 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:46,014 INFO  c.c.d.collector.CollectorTask - examined jobs           3        0s
+2019-05-09 12:55:46,014 INFO  c.c.d.collector.CollectorTask - new data                0        0s
+2019-05-09 12:55:46,014 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:46,027 INFO  c.c.d.collector.CollectorTask - examined jobs           1        0s
+2019-05-09 12:55:46,027 INFO  c.c.d.collector.CollectorTask - new data                0        0s
+2019-05-09 12:55:46,027 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:46,030 INFO  c.c.d.collector.CollectorTask - examined jobs           4        0s
+2019-05-09 12:55:46,030 INFO  c.c.d.collector.CollectorTask - new data                0        0s
+2019-05-09 12:55:46,030 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:46,032 INFO  c.c.d.collector.CollectorTask - examined jobs           1        0s
+2019-05-09 12:55:46,032 INFO  c.c.d.collector.CollectorTask - new data                0        0s
+2019-05-09 12:55:46,033 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:46,036 INFO  c.c.d.collector.CollectorTask - examined jobs           1        0s
+2019-05-09 12:55:46,036 INFO  c.c.d.collector.CollectorTask - new data                0        0s
+2019-05-09 12:55:46,036 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:46,078 INFO  c.c.d.collector.CollectorTask - examined jobs           1        0s
+2019-05-09 12:55:46,078 INFO  c.c.d.collector.CollectorTask - new data                0        0s
+2019-05-09 12:55:46,078 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:46,081 INFO  c.c.d.collector.CollectorTask - examined jobs           3        0s
+2019-05-09 12:55:46,081 INFO  c.c.d.collector.CollectorTask - new data                0        0s
+2019-05-09 12:55:46,081 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:46,083 INFO  c.c.d.collector.CollectorTask - examined jobs           0        0s
+2019-05-09 12:55:46,084 INFO  c.c.d.collector.CollectorTask - new data                0        0s
+2019-05-09 12:55:46,084 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-05-09 12:55:46,151 INFO  c.c.d.utils.CodeQualityDataService - storing new job at timestamp 

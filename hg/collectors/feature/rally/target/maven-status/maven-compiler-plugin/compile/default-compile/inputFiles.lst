@@ -1,0 +1,11 @@
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/rally/src/main/java/com/capitalone/dashboard/collector/DefaultRallyClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/rally/src/main/java/com/capitalone/dashboard/collector/RestOperationsSupplier.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/rally/src/main/java/com/capitalone/dashboard/collector/RallyClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/rally/src/main/java/com/capitalone/dashboard/Application.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/rally/src/main/java/com/capitalone/dashboard/collector/RallySettings.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/rally/src/main/java/com/capitalone/dashboard/model/RallyIteration.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/rally/src/main/java/com/capitalone/dashboard/repository/RallyCollectorRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/rally/src/main/java/com/capitalone/dashboard/model/RallyProject.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/rally/src/main/java/com/capitalone/dashboard/repository/RallyProjectRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/rally/src/main/java/com/capitalone/dashboard/collector/RallyCollectorTask.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/feature/rally/src/main/java/com/capitalone/dashboard/model/RallyCollector.java

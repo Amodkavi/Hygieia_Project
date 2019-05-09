@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AuditCollectorUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.capitalone.dashboard:nfrr-audit-collector</a> &gt; <a href="index.source.html" class="el_package">com.capitalone.dashboard.collector</a> &gt; <span class="el_source">AuditCollectorUtil.java</span></div><h1>AuditCollectorUtil.java</h1><pre class="source lang-java linenums">package com.capitalone.dashboard.collector;
+
+import com.capitalone.dashboard.model.Audit;
+import com.capitalone.dashboard.model.AuditStatus;
+import com.capitalone.dashboard.model.DataStatus;
+import com.capitalone.dashboard.model.AuditType;
+import com.capitalone.dashboard.model.AuditResult;
+import com.capitalone.dashboard.model.Dashboard;
+import com.capitalone.dashboard.model.Cmdb;
+
+import com.capitalone.dashboard.repository.AuditResultRepository;
+import com.capitalone.dashboard.repository.CmdbRepository;
+import com.capitalone.dashboard.status.CodeReviewAuditStatus;
+import com.capitalone.dashboard.status.DashboardAuditStatus;
+import com.capitalone.dashboard.status.CodeQualityAuditStatus;
+import com.capitalone.dashboard.status.PerformanceTestAuditStatus;
+import com.capitalone.dashboard.status.LibraryPolicyAuditStatus;
+import com.capitalone.dashboard.status.TestResultAuditStatus;
+
+import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.http.client.utils.URIBuilder;
+import org.bson.types.ObjectId;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.jmx.MBeanServerNotFoundException;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+
+/**
+ * &lt;h1&gt;AuditCollectorUtil&lt;/h1&gt;
+ * Utility class for NFRR Audit Collector
+ *
+ * @since 10/04/2018
+ */
+<span class="nc" id="L52">public class AuditCollectorUtil {</span>
+
+<span class="fc" id="L54">    private static final Logger LOGGER = LoggerFactory.getLogger(AuditCollectorUtil.class);</span>
+    private static final String HYGIEIA_AUDIT_URL = &quot;/dashboardReview&quot;;
+<span class="fc" id="L56">    private static List&lt;AuditResult&gt; auditResults = new ArrayList&lt;&gt;();</span>
+    private static final String AUDITTYPES_PARAM  = &quot;CODE_REVIEW,CODE_QUALITY,STATIC_SECURITY_ANALYSIS,LIBRARY_POLICY,TEST_RESULT,PERF_TEST&quot;;
+
+<span class="nc" id="L59">    private enum AUDIT_PARAMS {title,businessService,businessApplication,beginDate,endDate,auditType};</span>
+
+
+    private static final String STR_URL = &quot;url&quot;;
+    private static final String STR_REPORTURL = &quot;reportUrl&quot;;
+    private static final String STR_LIBRARYPOLICYRESULT = &quot;libraryPolicyResult&quot;;
+    private static final String STR_PULLREQUESTS = &quot;pullRequests&quot;;
+    private static final String STR_DIRECTCOMMITS = &quot;directCommits&quot;;
+    private static final String STR_AUDITSTATUSES = &quot;auditStatuses&quot;;
+    private static final String STR_REVIEW = &quot;review&quot;;
+    private static final String STR_APIUSER = &quot;apiUser&quot;;
+    private static final String STR_APITOKENSPACE = &quot;apiToken &quot;;
+    private static final String STR_AUTHORIZATION = &quot;Authorization&quot;;
+    private static final String STR_TRACEABILITY = &quot;traceability&quot;;
+    private static final String STR_FEATURE_TEST_RESULT = &quot;featureTestResult&quot;;
+    private static final String STR_PERCENTAGE = &quot;percentage&quot;;
+    private static final String STR_MANUAL = &quot;Manual&quot;;
+    private static final String STR_AUTOMATED = &quot;Automated&quot;;
+    private static final String STR_FUNCTIONAL = &quot;Functional&quot;;
+    private static final String STR_TYPE = &quot;type&quot;;
+    private static final String SUCCESS_COUNT = &quot;successCount&quot;;
+    private static final String FAILURE_COUNT = &quot;failureCount&quot;;
+    private static final String SKIP_COUNT = &quot;skippedCount&quot;;
+    private static final String TOTAL_COUNT = &quot;totalCount&quot;;
+
+
+
+    /**
+     * Get Code Review Audit Results
+     */
+    private static Audit getCodeReviewAudit(JSONArray jsonArray, JSONArray global) {
+
+<span class="nc" id="L91">        LOGGER.info(&quot;NFRR Audit Collector auditing CODE_REVIEW&quot;);</span>
+<span class="nc" id="L92">        Audit audit = new Audit();</span>
+<span class="nc" id="L93">        audit.setType(AuditType.CODE_REVIEW);</span>
+
+        Audit basicAudit;
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        if ((basicAudit = doBasicAuditCheck(jsonArray, global, AuditType.CODE_REVIEW)) != null) {</span>
+<span class="nc" id="L97">            return basicAudit;</span>
+        }
+<span class="nc" id="L99">        audit.setAuditStatus(AuditStatus.OK);</span>
+<span class="nc" id="L100">        audit.setDataStatus(DataStatus.OK);</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">        for (Object o : jsonArray) {</span>
+<span class="nc" id="L102">            JSONObject jo = (JSONObject) o;</span>
+<span class="nc" id="L103">            audit.getUrl().add((String) jo.get(STR_URL));</span>
+<span class="nc" id="L104">            JSONArray directCommits = (JSONArray) jo.get(STR_DIRECTCOMMITS);</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">            if (!CollectionUtils.isEmpty(directCommits)) {</span>
+<span class="nc" id="L106">                audit.setAuditStatus(AuditStatus.FAIL);</span>
+<span class="nc" id="L107">                audit.setDataStatus(DataStatus.OK);</span>
+<span class="nc" id="L108">                return audit;</span>
+            }
+<span class="nc" id="L110">            JSONArray pulls = (JSONArray) ((JSONObject) o).get(STR_PULLREQUESTS);</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">            for (Object po : pulls) {</span>
+<span class="nc" id="L112">                JSONArray auditJO = (JSONArray) ((JSONObject) po).get(STR_AUDITSTATUSES);</span>
+<span class="nc" id="L113">                boolean reviewed = false;</span>
+<span class="nc" id="L114">                auditJO.stream().map(aj -&gt; audit.getAuditStatusCodes().add((String) aj));</span>
+
+<span class="nc bnc" id="L116" title="All 2 branches missed.">                for (Object s : auditJO) {</span>
+<span class="nc" id="L117">                    String status = (String) s;</span>
+<span class="nc" id="L118">                    audit.getAuditStatusCodes().add(status);</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">                    if (CodeReviewAuditStatus.PEER_REVIEW_GHR.name().equalsIgnoreCase(status) ||</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">                            (CodeReviewAuditStatus.PEER_REVIEW_LGTM_SUCCESS.name().equalsIgnoreCase(status))) {</span>
+<span class="nc" id="L121">                        reviewed = true;</span>
+<span class="nc" id="L122">                        break;</span>
+                    }
+<span class="nc" id="L124">                }</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">                if (!reviewed) {</span>
+<span class="nc" id="L126">                    audit.setAuditStatus(AuditStatus.FAIL);</span>
+<span class="nc" id="L127">                    audit.setDataStatus(DataStatus.OK);</span>
+<span class="nc" id="L128">                    return audit;</span>
+                }
+<span class="nc" id="L130">            }</span>
+<span class="nc" id="L131">        }</span>
+<span class="nc" id="L132">        return audit;</span>
+    }
+
+    /**
+     * Do basic audit check - configuration, collector error, no data
+     */
+    private static Audit doBasicAuditCheck(JSONArray jsonArray, JSONArray global, AuditType auditType) {
+<span class="fc" id="L139">        Audit audit = new Audit();</span>
+<span class="fc" id="L140">        audit.setType(auditType);</span>
+<span class="pc bpc" id="L141" title="1 of 2 branches missed.">        if (!isConfigured(auditType, global)) {</span>
+<span class="nc" id="L142">            audit.setDataStatus(DataStatus.NOT_CONFIGURED);</span>
+<span class="nc" id="L143">            audit.setAuditStatus(AuditStatus.NA);</span>
+<span class="nc" id="L144">            return audit;</span>
+        }
+<span class="pc bpc" id="L146" title="2 of 4 branches missed.">        if (jsonArray == null || CollectionUtils.isEmpty(jsonArray)) {</span>
+<span class="nc" id="L147">            audit.setAuditStatus(AuditStatus.NA);</span>
+<span class="nc" id="L148">            audit.setDataStatus(DataStatus.NO_DATA);</span>
+<span class="nc" id="L149">            return audit;</span>
+        }
+<span class="pc bpc" id="L151" title="1 of 2 branches missed.">        if (isCollectorError(jsonArray)) {</span>
+<span class="nc" id="L152">            audit.setAuditStatus(AuditStatus.NA);</span>
+<span class="nc" id="L153">            audit.setDataStatus(DataStatus.ERROR);</span>
+<span class="nc" id="L154">            return audit;</span>
+        }
+<span class="fc" id="L156">        return null;</span>
+    }
+
+    /**
+     * Check for collector error
+     */
+    private static boolean isCollectorError(JSONArray jsonArray) {
+<span class="fc" id="L163">        Stream&lt;JSONObject&gt; jsonObjectStream = jsonArray.stream().map((Object object) -&gt; (JSONObject) object);</span>
+<span class="fc" id="L164">        Stream&lt;JSONArray&gt; auditStatusArray = jsonObjectStream.map(jsonObject -&gt; (JSONArray) jsonObject.get(STR_AUDITSTATUSES));</span>
+<span class="fc" id="L165">        return auditStatusArray.anyMatch(aSArray -&gt; aSArray.toJSONString().contains(DashboardAuditStatus.COLLECTOR_ITEM_ERROR.name()));</span>
+    }
+
+    /**
+     * Check for dashboard audit type configuration
+     */
+    @SuppressWarnings(&quot;PMD.NPathComplexity&quot;)
+    private static boolean isConfigured(AuditType auditType, JSONArray jsonArray) {
+<span class="pc bpc" id="L173" title="1 of 2 branches missed.">        if (auditType.equals(AuditType.CODE_REVIEW)) {</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">            return (jsonArray.toJSONString().contains(DashboardAuditStatus.DASHBOARD_REPO_CONFIGURED.name()) ? true : false);</span>
+        }
+<span class="pc bpc" id="L176" title="1 of 2 branches missed.">        if (auditType.equals(AuditType.CODE_QUALITY)) {</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">            return (jsonArray.toJSONString().contains(DashboardAuditStatus.DASHBOARD_CODEQUALITY_CONFIGURED.name()) ? true : false);</span>
+        }
+<span class="pc bpc" id="L179" title="1 of 2 branches missed.">        if (auditType.equals(AuditType.STATIC_SECURITY_ANALYSIS)) {</span>
+<span class="nc bnc" id="L180" title="All 2 branches missed.">            return (jsonArray.toJSONString().contains(DashboardAuditStatus.DASHBOARD_STATIC_SECURITY_ANALYSIS_CONFIGURED.name()) ? true : false);</span>
+        }
+<span class="pc bpc" id="L182" title="1 of 2 branches missed.">        if (auditType.equals(AuditType.LIBRARY_POLICY)) {</span>
+<span class="nc bnc" id="L183" title="All 2 branches missed.">            return (jsonArray.toJSONString().contains(DashboardAuditStatus.DASHBOARD_LIBRARY_POLICY_ANALYSIS_CONFIGURED.name()) ? true : false);</span>
+        }
+<span class="pc bpc" id="L185" title="1 of 2 branches missed.">        if (auditType.equals(AuditType.TEST_RESULT)) {</span>
+<span class="pc bpc" id="L186" title="1 of 2 branches missed.">            return (jsonArray.toJSONString().contains(DashboardAuditStatus.DASHBOARD_TEST_CONFIGURED.name()) ? true : false);</span>
+        }
+<span class="nc bnc" id="L188" title="All 2 branches missed.">        if (auditType.equals(AuditType.PERF_TEST)) {</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">            return (jsonArray.toJSONString().contains(DashboardAuditStatus.DASHBOARD_PERFORMANCE_TEST_CONFIGURED.name()) ? true : false);</span>
+        }
+<span class="nc bnc" id="L191" title="All 2 branches missed.">        if (auditType.equals(AuditType.BUILD_REVIEW)) {</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">            return (jsonArray.toJSONString().contains(DashboardAuditStatus.DASHBOARD_BUILD_CONFIGURED.name()) ? true : false);</span>
+        }
+<span class="nc" id="L194">        return false;</span>
+    }
+
+
+    /**
+     * Get code quality audit results
+     */
+    private static Audit getCodeQualityAudit(JSONArray jsonArray, JSONArray global) {
+
+<span class="nc" id="L203">        LOGGER.info(&quot;NFRR Audit Collector auditing CODE_QUALITY&quot;);</span>
+<span class="nc" id="L204">        Audit audit = new Audit();</span>
+<span class="nc" id="L205">        audit.setType(AuditType.CODE_QUALITY);</span>
+        Audit basicAudit;
+<span class="nc bnc" id="L207" title="All 2 branches missed.">        if ((basicAudit = doBasicAuditCheck(jsonArray, global, AuditType.CODE_QUALITY)) != null) {</span>
+<span class="nc" id="L208">            return basicAudit;</span>
+        }
+<span class="nc" id="L210">        audit.setAuditStatus(AuditStatus.OK);</span>
+<span class="nc" id="L211">        audit.setDataStatus(DataStatus.OK);</span>
+<span class="nc bnc" id="L212" title="All 2 branches missed.">        for (Object o : jsonArray) {</span>
+<span class="nc" id="L213">            Optional&lt;Object&gt; urlOptObj = Optional.ofNullable(((JSONObject) o).get(STR_URL));</span>
+<span class="nc" id="L214">            urlOptObj.ifPresent(urlObj -&gt; audit.getUrl().add(urlOptObj.get().toString()));</span>
+<span class="nc" id="L215">            JSONArray auditJO = (JSONArray) ((JSONObject) o).get(STR_AUDITSTATUSES);</span>
+<span class="nc" id="L216">            auditJO.stream().map(aj -&gt; audit.getAuditStatusCodes().add((String) aj));</span>
+<span class="nc" id="L217">            boolean ok = false;</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">            for (Object s : auditJO) {</span>
+<span class="nc" id="L219">                String status = (String) s;</span>
+<span class="nc" id="L220">                audit.getAuditStatusCodes().add(status);</span>
+<span class="nc bnc" id="L221" title="All 2 branches missed.">                if (CodeQualityAuditStatus.CODE_QUALITY_AUDIT_OK.name().equalsIgnoreCase(status)) {</span>
+<span class="nc" id="L222">                    ok = true;</span>
+<span class="nc" id="L223">                    break;</span>
+                }
+<span class="nc bnc" id="L225" title="All 2 branches missed.">                if (CodeQualityAuditStatus.CODE_QUALITY_DETAIL_MISSING.name().equalsIgnoreCase(status)) {</span>
+<span class="nc" id="L226">                    audit.setAuditStatus(AuditStatus.NA);</span>
+<span class="nc" id="L227">                    audit.setDataStatus(DataStatus.NO_DATA);</span>
+<span class="nc" id="L228">                    return audit;</span>
+                }
+<span class="nc" id="L230">            }</span>
+<span class="nc bnc" id="L231" title="All 2 branches missed.">            if (!ok) {</span>
+<span class="nc" id="L232">                audit.setAuditStatus(AuditStatus.FAIL);</span>
+<span class="nc" id="L233">                return audit;</span>
+            }
+<span class="nc" id="L235">        }</span>
+<span class="nc" id="L236">        return audit;</span>
+    }
+
+
+    /**
+     * Get security audit results
+     */
+    private static Audit getSecurityAudit(JSONArray jsonArray, JSONArray global) {
+
+<span class="nc" id="L245">        LOGGER.info(&quot;NFRR Audit Collector auditing STATIC_SECURITY_ANALYSIS&quot;);</span>
+<span class="nc" id="L246">        Audit audit = new Audit();</span>
+<span class="nc" id="L247">        audit.setType(AuditType.STATIC_SECURITY_ANALYSIS);</span>
+        Audit basicAudit;
+<span class="nc bnc" id="L249" title="All 2 branches missed.">        if ((basicAudit = doBasicAuditCheck(jsonArray, global, AuditType.STATIC_SECURITY_ANALYSIS)) != null) {</span>
+<span class="nc" id="L250">            return basicAudit;</span>
+        }
+        Set&lt;String&gt; auditStatuses;
+<span class="nc bnc" id="L253" title="All 2 branches missed.">        for (Object o : jsonArray) {</span>
+<span class="nc" id="L254">            JSONArray auditJO = (JSONArray) ((JSONObject) o).get(STR_AUDITSTATUSES);</span>
+<span class="nc" id="L255">            Optional&lt;Object&gt; urlOptObj = Optional.ofNullable(((JSONObject) o).get(STR_URL));</span>
+<span class="nc" id="L256">            urlOptObj.ifPresent(urlObj -&gt; audit.getUrl().add(urlOptObj.get().toString()));</span>
+<span class="nc" id="L257">            auditJO.stream().forEach(status -&gt; audit.getAuditStatusCodes().add((String) status));</span>
+<span class="nc" id="L258">        }</span>
+<span class="nc" id="L259">        auditStatuses = audit.getAuditStatusCodes();</span>
+<span class="nc bnc" id="L260" title="All 2 branches missed.">        if(auditStatuses.contains(CodeQualityAuditStatus.STATIC_SECURITY_SCAN_FAIL.name()) ||</span>
+<span class="nc bnc" id="L261" title="All 2 branches missed.">                auditStatuses.contains(CodeQualityAuditStatus.STATIC_SECURITY_SCAN_FOUND_HIGH.name()) ||</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">                auditStatuses.contains(CodeQualityAuditStatus.STATIC_SECURITY_SCAN_FOUND_CRITICAL.name())){</span>
+<span class="nc" id="L263">            audit.setAuditStatus(AuditStatus.FAIL);</span>
+<span class="nc" id="L264">            audit.setDataStatus(DataStatus.OK);</span>
+<span class="nc bnc" id="L265" title="All 2 branches missed.">        }else if(auditStatuses.contains(CodeQualityAuditStatus.STATIC_SECURITY_SCAN_OK.name()) ){</span>
+<span class="nc" id="L266">            audit.setAuditStatus(AuditStatus.OK);</span>
+<span class="nc" id="L267">            audit.setDataStatus(DataStatus.OK);</span>
+        }else {
+<span class="nc" id="L269">            audit.setAuditStatus(AuditStatus.NA);</span>
+<span class="nc" id="L270">            audit.setDataStatus(DataStatus.NO_DATA);</span>
+        }
+<span class="nc" id="L272">        return audit;</span>
+    }
+
+
+    /**
+     * Get library policy  audit results
+     */
+    private static Audit getOSSAudit(JSONArray jsonArray, JSONArray global) {
+
+<span class="nc" id="L281">        LOGGER.info(&quot;NFRR Audit Collector auditing LIBRARY_POLICY&quot;);</span>
+<span class="nc" id="L282">        Audit audit = new Audit();</span>
+<span class="nc" id="L283">        audit.setType(AuditType.LIBRARY_POLICY);</span>
+
+        Audit basicAudit;
+<span class="nc bnc" id="L286" title="All 2 branches missed.">        if ((basicAudit = doBasicAuditCheck(jsonArray, global, AuditType.LIBRARY_POLICY)) != null) {</span>
+<span class="nc" id="L287">            return basicAudit;</span>
+        }
+<span class="nc" id="L289">        audit.setAuditStatus(AuditStatus.OK);</span>
+<span class="nc" id="L290">        audit.setDataStatus(DataStatus.OK);</span>
+<span class="nc bnc" id="L291" title="All 2 branches missed.">        for (Object o : jsonArray) {</span>
+<span class="nc" id="L292">            JSONArray auditJO = (JSONArray) ((JSONObject) o).get(STR_AUDITSTATUSES);</span>
+<span class="nc" id="L293">            Optional&lt;Object&gt; lpOptObj = Optional.ofNullable(((JSONObject) o).get(STR_LIBRARYPOLICYRESULT));</span>
+<span class="nc" id="L294">            lpOptObj.ifPresent(lpObj -&gt; audit.getUrl().add(((JSONObject) lpOptObj.get()).get(STR_REPORTURL).toString()));</span>
+<span class="nc" id="L295">            auditJO.stream().map(aj -&gt; audit.getAuditStatusCodes().add((String) aj));</span>
+<span class="nc" id="L296">            boolean ok = false;</span>
+<span class="nc bnc" id="L297" title="All 2 branches missed.">            for (Object s : auditJO) {</span>
+<span class="nc" id="L298">                String status = (String) s;</span>
+<span class="nc" id="L299">                audit.getAuditStatusCodes().add(status);</span>
+<span class="nc bnc" id="L300" title="All 2 branches missed.">                if (LibraryPolicyAuditStatus.LIBRARY_POLICY_AUDIT_OK.name().equalsIgnoreCase(status)) {</span>
+<span class="nc" id="L301">                    ok = true;</span>
+<span class="nc" id="L302">                    break;</span>
+                }
+<span class="nc bnc" id="L304" title="All 2 branches missed.">                if (LibraryPolicyAuditStatus.LIBRARY_POLICY_AUDIT_MISSING.name().equalsIgnoreCase(status)) {</span>
+<span class="nc" id="L305">                    audit.setAuditStatus(AuditStatus.NA);</span>
+<span class="nc" id="L306">                    audit.setDataStatus(DataStatus.NO_DATA);</span>
+<span class="nc" id="L307">                    return audit;</span>
+                }
+<span class="nc" id="L309">            }</span>
+<span class="nc bnc" id="L310" title="All 2 branches missed.">            if (!ok) {</span>
+<span class="nc" id="L311">                audit.setAuditStatus(AuditStatus.FAIL);</span>
+<span class="nc" id="L312">                return audit;</span>
+            }
+<span class="nc" id="L314">        }</span>
+<span class="nc" id="L315">        return audit;</span>
+    }
+
+
+    /**
+     * Get test result audit results
+     */
+    protected static Audit getTestAudit(JSONArray jsonArray, JSONArray global) {
+
+<span class="fc" id="L324">        LOGGER.info(&quot;NFRR Audit Collector auditing TEST_RESULT&quot;);</span>
+<span class="fc" id="L325">        Audit audit = new Audit();</span>
+<span class="fc" id="L326">        audit.setType(AuditType.TEST_RESULT);</span>
+
+        Audit basicAudit;
+<span class="pc bpc" id="L329" title="1 of 2 branches missed.">        if ((basicAudit = doBasicAuditCheck(jsonArray, global, AuditType.TEST_RESULT)) != null) {</span>
+<span class="nc" id="L330">            return basicAudit;</span>
+        }
+<span class="fc" id="L332">        audit.setAuditStatus(AuditStatus.OK);</span>
+<span class="fc" id="L333">        audit.setDataStatus(DataStatus.OK);</span>
+        Set&lt;String&gt; auditStatuses;
+<span class="fc bfc" id="L335" title="All 2 branches covered.">        for (Object o : jsonArray) {</span>
+<span class="fc" id="L336">            JSONArray auditJO = (JSONArray) ((JSONObject) o).get(STR_AUDITSTATUSES);</span>
+<span class="fc" id="L337">            Optional&lt;Object&gt; urlOptObj = Optional.ofNullable(((JSONObject) o).get(STR_URL));</span>
+<span class="pc" id="L338">            urlOptObj.ifPresent(urlObj -&gt; audit.getUrl().add(urlOptObj.get().toString()));</span>
+<span class="fc" id="L339">            auditJO.stream().forEach(status -&gt; audit.getAuditStatusCodes().add((String) status));</span>
+<span class="fc" id="L340">        }</span>
+<span class="fc" id="L341">        audit.setOptions(getTestAuditOptions(jsonArray));</span>
+<span class="fc" id="L342">        auditStatuses = audit.getAuditStatusCodes();</span>
+<span class="pc bpc" id="L343" title="1 of 2 branches missed.">        if (auditStatuses.contains(TestResultAuditStatus.TEST_RESULT_AUDIT_FAIL.name())){</span>
+<span class="nc" id="L344">            audit.setAuditStatus(AuditStatus.FAIL);</span>
+<span class="nc" id="L345">            audit.setDataStatus(DataStatus.OK);</span>
+<span class="pc bpc" id="L346" title="1 of 2 branches missed.">        } else if (auditStatuses.contains(TestResultAuditStatus.TEST_RESULT_AUDIT_OK.name())) {</span>
+<span class="fc" id="L347">            audit.setAuditStatus(AuditStatus.OK);</span>
+<span class="fc" id="L348">            audit.setDataStatus(DataStatus.OK);</span>
+        }else{
+<span class="nc" id="L350">            audit.setAuditStatus(AuditStatus.NA);</span>
+<span class="nc" id="L351">            audit.setDataStatus(DataStatus.NO_DATA);</span>
+        }
+<span class="fc" id="L353">        return audit;</span>
+    }
+
+
+    /**
+     * Get performance testing audit results
+     */
+    private static Audit getPerfAudit(JSONArray jsonArray, JSONArray global) {
+
+<span class="nc" id="L362">        LOGGER.info(&quot;NFRR Audit Collector auditing PERF_TEST&quot;);</span>
+<span class="nc" id="L363">        Audit audit = new Audit();</span>
+<span class="nc" id="L364">        audit.setType(AuditType.PERF_TEST);</span>
+
+        Audit basicAudit;
+<span class="nc bnc" id="L367" title="All 2 branches missed.">        if ((basicAudit = doBasicAuditCheck(jsonArray, global, AuditType.PERF_TEST)) != null) {</span>
+<span class="nc" id="L368">            return basicAudit;</span>
+        }
+<span class="nc" id="L370">        audit.setAuditStatus(AuditStatus.OK);</span>
+<span class="nc" id="L371">        audit.setDataStatus(DataStatus.OK);</span>
+<span class="nc bnc" id="L372" title="All 2 branches missed.">        for (Object o : jsonArray) {</span>
+<span class="nc" id="L373">            JSONArray auditJO = (JSONArray) ((JSONObject) o).get(STR_AUDITSTATUSES);</span>
+<span class="nc" id="L374">            Optional&lt;Object&gt; urlOptObj = Optional.ofNullable(((JSONObject) o).get(STR_URL));</span>
+<span class="nc" id="L375">            urlOptObj.ifPresent(urlObj -&gt; audit.getUrl().add(urlOptObj.get().toString()));</span>
+<span class="nc" id="L376">            auditJO.stream().map(aj -&gt; audit.getAuditStatusCodes().add((String) aj));</span>
+<span class="nc" id="L377">            boolean ok = false;</span>
+<span class="nc bnc" id="L378" title="All 2 branches missed.">            for (Object s : auditJO) {</span>
+<span class="nc" id="L379">                String status = (String) s;</span>
+<span class="nc" id="L380">                audit.getAuditStatusCodes().add(status);</span>
+<span class="nc bnc" id="L381" title="All 2 branches missed.">                if (PerformanceTestAuditStatus.PERF_RESULT_AUDIT_OK.name().equalsIgnoreCase(status)) {</span>
+<span class="nc" id="L382">                    ok = true;</span>
+<span class="nc" id="L383">                    break;</span>
+                }
+<span class="nc bnc" id="L385" title="All 2 branches missed.">                if (PerformanceTestAuditStatus.PERF_RESULT_AUDIT_MISSING.name().equalsIgnoreCase(status)) {</span>
+<span class="nc" id="L386">                    audit.setAuditStatus(AuditStatus.NA);</span>
+<span class="nc" id="L387">                    audit.setDataStatus(DataStatus.NO_DATA);</span>
+<span class="nc" id="L388">                    return audit;</span>
+                }
+<span class="nc" id="L390">            }</span>
+<span class="nc bnc" id="L391" title="All 2 branches missed.">            if (!ok) {</span>
+<span class="nc" id="L392">                audit.setAuditStatus(AuditStatus.FAIL);</span>
+<span class="nc" id="L393">                return audit;</span>
+            }
+<span class="nc" id="L395">        }</span>
+<span class="nc" id="L396">        return audit;</span>
+    }
+
+    /**
+     * Get all audit results
+     */
+    @SuppressWarnings(&quot;PMD&quot;)
+    public static Map&lt;AuditType, Audit&gt; getAudit(Dashboard dashboard, AuditSettings settings, long begin, long end) {
+<span class="nc" id="L404">        Map&lt;AuditType, Audit&gt; audits = new HashMap&lt;&gt;();</span>
+
+<span class="nc" id="L406">        String url = getAuditAPIUrl(dashboard, settings, begin, end);</span>
+<span class="nc" id="L407">        JSONObject auditResponseObj = parseObject(url, settings);</span>
+<span class="nc bnc" id="L408" title="All 2 branches missed.">        if(auditResponseObj == null){</span>
+<span class="nc" id="L409">            return audits;</span>
+        }
+<span class="nc" id="L411">        JSONArray globalStatus = (JSONArray) auditResponseObj.get(STR_AUDITSTATUSES);</span>
+<span class="nc" id="L412">        JSONObject review = (JSONObject) auditResponseObj.get(STR_REVIEW);</span>
+
+<span class="nc bnc" id="L414" title="All 2 branches missed.">        JSONArray codeReviewJO = review.get(AuditType.CODE_REVIEW.name()) == null ? null : (JSONArray) review.get(AuditType.CODE_REVIEW.name());</span>
+<span class="nc" id="L415">        Audit audit = getCodeReviewAudit(codeReviewJO, globalStatus);</span>
+<span class="nc" id="L416">        audits.put(audit.getType(), audit);</span>
+
+<span class="nc bnc" id="L418" title="All 2 branches missed.">        JSONArray scaJO = review.get(AuditType.CODE_QUALITY.name()) == null ? null : (JSONArray) review.get(AuditType.CODE_QUALITY.name());</span>
+<span class="nc" id="L419">        audit = getCodeQualityAudit(scaJO, globalStatus);</span>
+<span class="nc" id="L420">        audits.put(audit.getType(), audit);</span>
+
+<span class="nc bnc" id="L422" title="All 2 branches missed.">        JSONArray perfJO = review.get(AuditType.PERF_TEST.name()) == null ? null : (JSONArray) review.get(AuditType.PERF_TEST.name());</span>
+<span class="nc" id="L423">        audit = getPerfAudit(perfJO, globalStatus);</span>
+<span class="nc" id="L424">        audits.put(audit.getType(), audit);</span>
+
+<span class="nc bnc" id="L426" title="All 2 branches missed.">        JSONArray ossJO = review.get(AuditType.LIBRARY_POLICY.name()) == null ? null : (JSONArray) review.get(AuditType.LIBRARY_POLICY.name());</span>
+<span class="nc" id="L427">        audit = getOSSAudit(ossJO, globalStatus);</span>
+<span class="nc" id="L428">        audits.put(audit.getType(), audit);</span>
+
+<span class="nc bnc" id="L430" title="All 2 branches missed.">        JSONArray testJO = review.get(AuditType.TEST_RESULT.name()) == null ? null : (JSONArray) review.get(AuditType.TEST_RESULT.name());</span>
+<span class="nc" id="L431">        audit = getTestAudit(testJO, globalStatus);</span>
+<span class="nc" id="L432">        audits.put(audit.getType(), audit);</span>
+
+<span class="nc bnc" id="L434" title="All 2 branches missed.">        JSONArray sscaJO = review.get(AuditType.STATIC_SECURITY_ANALYSIS.name()) == null ? null : (JSONArray) review.get(AuditType.STATIC_SECURITY_ANALYSIS.name());</span>
+<span class="nc" id="L435">        audit = getSecurityAudit(sscaJO, globalStatus);</span>
+<span class="nc" id="L436">        audits.put(audit.getType(), audit);</span>
+<span class="nc" id="L437">        return audits;</span>
+    }
+
+    /**
+     * Make audit api rest call and parse response
+     */
+    protected static JSONObject parseObject(String url, AuditSettings settings){
+<span class="nc" id="L444">        LOGGER.info(&quot;NFRR Audit Collector Audit API Call&quot;);</span>
+<span class="nc" id="L445">        RestTemplate restTemplate = new RestTemplate();</span>
+<span class="nc" id="L446">        JSONObject responseObj = null;</span>
+        try {
+<span class="nc" id="L448">            ResponseEntity&lt;String&gt; response = restTemplate.exchange(url, HttpMethod.GET, getHeaders(settings), String.class);</span>
+<span class="nc" id="L449">            JSONParser jsonParser = new JSONParser();</span>
+<span class="nc" id="L450">            responseObj = (JSONObject) jsonParser.parse(response.getBody());</span>
+<span class="nc" id="L451">        } catch (Exception e) {</span>
+<span class="nc" id="L452">            LOGGER.error(&quot;Error while calling audit api for the params : &quot; + url.substring(url.lastIndexOf(&quot;?&quot;)),e);</span>
+<span class="nc" id="L453">        }</span>
+<span class="nc" id="L454">        return responseObj;</span>
+    }
+
+    /**
+     * Construct audit api url
+     */
+    protected static String getAuditAPIUrl(Dashboard dashboard, AuditSettings settings, long beginDate, long endDate) {
+<span class="nc" id="L461">        LOGGER.info(&quot;NFRR Audit Collector creates Audit API URL&quot;);</span>
+<span class="nc bnc" id="L462" title="All 2 branches missed.">        if (CollectionUtils.isEmpty(settings.getServers())) {</span>
+<span class="nc" id="L463">            LOGGER.error(&quot;No Server Found to run NoFearRelease audit collector&quot;);</span>
+<span class="nc" id="L464">            throw new MBeanServerNotFoundException(&quot;No Server Found to run NoFearRelease audit collector&quot;);</span>
+        }
+<span class="nc" id="L466">        URIBuilder auditURI = new URIBuilder();</span>
+<span class="nc" id="L467">        auditURI.setPath(settings.getServers().get(0) + HYGIEIA_AUDIT_URL);</span>
+<span class="nc" id="L468">        auditURI.addParameter(AUDIT_PARAMS.title.name(), dashboard.getTitle());</span>
+<span class="nc" id="L469">        auditURI.addParameter(AUDIT_PARAMS.businessService.name(), dashboard.getConfigurationItemBusServName());</span>
+<span class="nc" id="L470">        auditURI.addParameter(AUDIT_PARAMS.businessApplication.name(), dashboard.getConfigurationItemBusAppName());</span>
+<span class="nc" id="L471">        auditURI.addParameter(AUDIT_PARAMS.beginDate.name(), String.valueOf(beginDate));</span>
+<span class="nc" id="L472">        auditURI.addParameter(AUDIT_PARAMS.endDate.name(), String.valueOf(endDate));</span>
+<span class="nc" id="L473">        auditURI.addParameter(AUDIT_PARAMS.auditType.name(),&quot;&quot;);</span>
+<span class="nc" id="L474">        String auditURIStr = auditURI.toString().replace(&quot;+&quot;, &quot; &quot;);</span>
+<span class="nc" id="L475">        return auditURIStr + AUDITTYPES_PARAM;</span>
+    }
+
+    /**
+     * Get api authentication headers
+     */
+    protected static HttpEntity getHeaders(AuditSettings auditSettings) {
+<span class="nc" id="L482">        HttpHeaders headers = new HttpHeaders();</span>
+<span class="nc bnc" id="L483" title="All 4 branches missed.">        if (!CollectionUtils.isEmpty(auditSettings.getUsernames()) &amp;&amp; !CollectionUtils.isEmpty(auditSettings.getApiKeys())) {</span>
+<span class="nc" id="L484">            headers.set(STR_APIUSER, auditSettings.getUsernames().iterator().next());</span>
+<span class="nc" id="L485">            headers.set(STR_AUTHORIZATION, STR_APITOKENSPACE + auditSettings.getApiKeys().iterator().next());</span>
+        }
+<span class="nc" id="L487">        return new HttpEntity&lt;&gt;(headers);</span>
+    }
+
+    /**
+     * Add audit result by audit type
+     */
+    @SuppressWarnings(&quot;PMD.NPathComplexity&quot;)
+    public static void addAuditResultByAuditType(Dashboard dashboard, Map&lt;AuditType, Audit&gt; auditMap, CmdbRepository cmdbRepository, long timestamp) {
+
+<span class="nc bnc" id="L496" title="All 2 branches missed.">        if(CollectionUtils.isEmpty(auditMap)){ return; }</span>
+<span class="nc" id="L497">        Cmdb cmdb = cmdbRepository.findByConfigurationItem(dashboard.getConfigurationItemBusServName());</span>
+<span class="nc" id="L498">        ObjectId dashboardId = dashboard.getId();</span>
+<span class="nc" id="L499">        String dashboardTitle = dashboard.getTitle();</span>
+<span class="nc bnc" id="L500" title="All 4 branches missed.">        String ownerDept = ((cmdb == null || cmdb.getOwnerDept() == null) ? &quot;&quot; : cmdb.getOwnerDept());</span>
+<span class="nc bnc" id="L501" title="All 2 branches missed.">        String appService = (dashboard.getConfigurationItemBusServName() == null ? &quot;&quot; : dashboard.getConfigurationItemBusServName());</span>
+<span class="nc bnc" id="L502" title="All 2 branches missed.">        String appBusApp = (dashboard.getConfigurationItemBusAppName() == null ? &quot;&quot; : dashboard.getConfigurationItemBusAppName());</span>
+<span class="nc bnc" id="L503" title="All 4 branches missed.">        String appServiceOwner = ((cmdb == null || cmdb.getAppServiceOwner() == null) ? &quot;&quot; : cmdb.getAppServiceOwner());</span>
+<span class="nc bnc" id="L504" title="All 4 branches missed.">        String appBusAppOwner = ((cmdb == null || cmdb.getBusinessOwner() == null) ? &quot;&quot; : cmdb.getBusinessOwner());</span>
+
+<span class="nc" id="L506">        Arrays.stream(AuditType.values()).forEach((AuditType auditType) -&gt; {</span>
+<span class="nc bnc" id="L507" title="All 4 branches missed.">            if (!(auditType.equals(AuditType.ALL) || auditType.equals(AuditType.BUILD_REVIEW))) {</span>
+<span class="nc" id="L508">                Audit audit = auditMap.get(auditType);</span>
+<span class="nc" id="L509">                AuditResult auditResult = new AuditResult(dashboardId, dashboardTitle, ownerDept, appService, appBusApp, appServiceOwner, appBusAppOwner,</span>
+<span class="nc" id="L510">                        auditType, audit.getDataStatus().name(), audit.getAuditStatus().name(), String.join(&quot;,&quot;, audit.getAuditStatusCodes()),</span>
+<span class="nc" id="L511">                        String.join(&quot;,&quot;, audit.getUrl()), timestamp);</span>
+<span class="nc bnc" id="L512" title="All 2 branches missed.">                auditResult.setOptions(audit.getOptions() != null ? audit.getOptions() : null);</span>
+<span class="nc" id="L513">                auditResults.add(auditResult);</span>
+            }
+<span class="nc" id="L515">        });</span>
+<span class="nc" id="L516">    }</span>
+
+    /**
+     * Get audit results collection
+     */
+    protected static List&lt;AuditResult&gt; getAuditResults() {
+<span class="fc" id="L522">        return auditResults;</span>
+    }
+
+    /**
+     * Clear audit results repository
+     */
+    public static void clearAuditResultRepo(AuditResultRepository auditResultRepository) {
+<span class="nc" id="L529">        LOGGER.info(&quot;NFRR Audit Collector clears last collected audit results from database&quot;);</span>
+<span class="nc" id="L530">        auditResultRepository.deleteAll();</span>
+<span class="nc" id="L531">    }</span>
+
+    /**
+     * Clear audit results collection
+     */
+    public static void clearAuditResults() {
+<span class="nc" id="L537">        auditResults.clear();</span>
+<span class="nc" id="L538">    }</span>
+
+    /**
+     * Get test audit only optional data
+     * @return
+     * @param jsonArray
+     */
+    public static Map&lt;String,Object&gt; getTestAuditOptions(JSONArray jsonArray) {
+<span class="fc" id="L546">        Map&lt;String, Object&gt; options = new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L548">        Supplier&lt;Stream&gt; manualTestStream = () -&gt; jsonArray.stream()</span>
+<span class="fc" id="L549">                .filter(jObj-&gt; ((JSONObject)jObj).get(STR_TYPE).toString().equalsIgnoreCase(STR_MANUAL));</span>
+<span class="fc" id="L550">        Supplier&lt;Stream&gt;  automatedTestStream = () -&gt; jsonArray.stream()</span>
+<span class="fc" id="L551">                .filter(jObj-&gt; ((JSONObject)jObj).get(STR_TYPE).toString().equalsIgnoreCase(STR_FUNCTIONAL));</span>
+
+<span class="fc" id="L553">        Map&lt;String, Double&gt; traceability = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L554">        traceability.put(STR_AUTOMATED, getAvgTracePercent(automatedTestStream.get()));</span>
+<span class="fc" id="L555">        traceability.put(STR_MANUAL, getAvgTracePercent(manualTestStream.get()));</span>
+<span class="fc" id="L556">        options.put(STR_TRACEABILITY, traceability);</span>
+
+<span class="fc" id="L558">        Map&lt;String, Map&gt; featureTestResult = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L559">        Map featureAutoTestResultMap = new HashMap();</span>
+<span class="fc" id="L560">        Map featureManualTestResultMap = new HashMap();</span>
+
+<span class="fc" id="L562">        featureAutoTestResultMap.put(SUCCESS_COUNT, getFeatureTestCount(SUCCESS_COUNT, automatedTestStream.get()));</span>
+<span class="fc" id="L563">        featureAutoTestResultMap.put(FAILURE_COUNT, getFeatureTestCount(FAILURE_COUNT, automatedTestStream.get()));</span>
+<span class="fc" id="L564">        featureAutoTestResultMap.put(SKIP_COUNT, getFeatureTestCount(SKIP_COUNT, automatedTestStream.get()));</span>
+<span class="fc" id="L565">        featureAutoTestResultMap.put(TOTAL_COUNT, getFeatureTestCount(TOTAL_COUNT, automatedTestStream.get()));</span>
+
+<span class="fc" id="L567">        featureManualTestResultMap.put(SUCCESS_COUNT, getFeatureTestCount(SUCCESS_COUNT, manualTestStream.get()));</span>
+<span class="fc" id="L568">        featureManualTestResultMap.put(FAILURE_COUNT, getFeatureTestCount(FAILURE_COUNT, manualTestStream.get()));</span>
+<span class="fc" id="L569">        featureManualTestResultMap.put(SKIP_COUNT, getFeatureTestCount(SKIP_COUNT, manualTestStream.get()));</span>
+<span class="fc" id="L570">        featureManualTestResultMap.put(TOTAL_COUNT, getFeatureTestCount(TOTAL_COUNT, manualTestStream.get()));</span>
+
+<span class="fc" id="L572">        featureTestResult.put(STR_AUTOMATED, featureAutoTestResultMap);</span>
+<span class="fc" id="L573">        featureTestResult.put(STR_MANUAL, featureManualTestResultMap);</span>
+<span class="fc" id="L574">        options.put(STR_FEATURE_TEST_RESULT, featureTestResult);</span>
+<span class="fc" id="L575">        return options;</span>
+    }
+
+    private static Integer getFeatureTestCount(String countType, Stream stream) {
+<span class="fc" id="L579">        return stream</span>
+<span class="fc" id="L580">                .map(jObj -&gt; ((JSONObject)jObj).get(STR_FEATURE_TEST_RESULT))</span>
+<span class="fc" id="L581">                .map(featureTestResult -&gt; ((JSONObject)featureTestResult).get(countType))</span>
+<span class="fc" id="L582">                .mapToInt(n -&gt; Integer.valueOf(n.toString())).sum();</span>
+    }
+
+    private static Double getAvgTracePercent(Stream stream) {
+<span class="fc" id="L586">        return stream</span>
+<span class="fc" id="L587">                .map(jObj -&gt; ((JSONObject)jObj).get(STR_TRACEABILITY))</span>
+<span class="fc" id="L588">                .map(traceability -&gt; ((JSONObject)traceability).get(STR_PERCENTAGE))</span>
+<span class="fc" id="L589">                .mapToDouble(s-&gt; Double.valueOf(s.toString())).average().orElse(NumberUtils.DOUBLE_ZERO);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

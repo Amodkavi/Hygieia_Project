@@ -1,0 +1,11 @@
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/gitlab/src/main/java/com/capitalone/dashboard/Application.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/gitlab/src/main/java/com/capitalone/dashboard/repository/GitlabGitCollectorRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/gitlab/src/main/java/com/capitalone/dashboard/gitlab/GitlabUrlUtility.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/gitlab/src/main/java/com/capitalone/dashboard/collector/GitlabSettings.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/gitlab/src/main/java/com/capitalone/dashboard/gitlab/DefaultGitlabGitClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/gitlab/src/main/java/com/capitalone/dashboard/collector/GitlabGitCollectorTask.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/gitlab/src/main/java/com/capitalone/dashboard/model/GitlabGitRepo.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/gitlab/src/main/java/com/capitalone/dashboard/gitlab/GitlabGitClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/gitlab/src/main/java/com/capitalone/dashboard/gitlab/model/GitlabCommit.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/gitlab/src/main/java/com/capitalone/dashboard/gitlab/GitlabCommitsResponseMapper.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/gitlab/src/main/java/com/capitalone/dashboard/collector/RestOperationsSupplier.java

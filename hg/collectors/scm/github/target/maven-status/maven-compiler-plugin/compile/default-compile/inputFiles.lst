@@ -1,0 +1,9 @@
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/github/src/main/java/com/capitalone/dashboard/collector/GitHubCollectorTask.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/github/src/main/java/com/capitalone/dashboard/collector/GitHubSettings.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/github/src/main/java/com/capitalone/dashboard/collector/RestOperationsSupplier.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/github/src/main/java/com/capitalone/dashboard/model/GitHubParsed.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/github/src/main/java/com/capitalone/dashboard/repository/GitHubRepoRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/github/src/main/java/com/capitalone/dashboard/Application.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/github/src/main/java/com/capitalone/dashboard/collector/GitHubClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/github/src/main/java/com/capitalone/dashboard/model/GitHubRepo.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/github/src/main/java/com/capitalone/dashboard/collector/DefaultGitHubClient.java

@@ -1,0 +1,70 @@
+2019-05-09 12:55:23,191 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-05-09 12:55:23,208 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+2019-05-09 12:55:23,212 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1deceb67, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@582a764a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@64984b0f, org.springframework.test.context.transaction.TransactionalTestExecutionListener@292158f8, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@53ec2968]
+2019-05-09 12:55:23,484 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-05-09 12:55:23,485 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [javax/servlet/ServletContext]
+2019-05-09 12:55:23,485 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3181d4de, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4f64d9cb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@639c7f9c, org.springframework.test.context.transaction.TransactionalTestExecutionListener@270d5060, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1815577b]
+2019-05-09 12:55:23,630 INFO  o.s.c.s.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@6a6da47a: startup date [Thu May 09 12:55:23 IST 2019]; root of context hierarchy
+2019-05-09 12:55:24,138 INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-05-09 12:55:26,239 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@5ea4d07f]
+2019-05-09 12:55:26,262 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,263 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@2515ed62]
+2019-05-09 12:55:26,265 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,265 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@38f9e69b]
+2019-05-09 12:55:26,266 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,267 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@128e7fc4]
+2019-05-09 12:55:26,268 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,271 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@13e3f9a9]
+2019-05-09 12:55:26,273 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,278 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.components updates:[com.mongodb.bulk.UpdateRequest@1997784a]
+2019-05-09 12:55:26,281 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,288 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@fbcba93]
+2019-05-09 12:55:26,289 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,289 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@39e347c]
+2019-05-09 12:55:26,290 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,290 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@2169596d]
+2019-05-09 12:55:26,291 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,292 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@2300d6fd]
+2019-05-09 12:55:26,292 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,293 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@4902882c]
+2019-05-09 12:55:26,294 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,295 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3b4d78a4]
+2019-05-09 12:55:26,296 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,296 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5084fc91]
+2019-05-09 12:55:26,297 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,298 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@75966f42]
+2019-05-09 12:55:26,298 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,299 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@2808ca34]
+2019-05-09 12:55:26,300 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,300 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@78500fc9]
+2019-05-09 12:55:26,301 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,302 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@fc71426]
+2019-05-09 12:55:26,302 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,303 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@49ed96e3]
+2019-05-09 12:55:26,303 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,304 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@275aac80]
+2019-05-09 12:55:26,305 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,305 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5f8cd1e5]
+2019-05-09 12:55:26,306 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,306 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@685d9816]
+2019-05-09 12:55:26,307 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,307 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@4d225170]
+2019-05-09 12:55:26,308 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,309 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3f6edaf8]
+2019-05-09 12:55:26,310 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,310 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@6543709]
+2019-05-09 12:55:26,311 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,311 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@2cd92fd]
+2019-05-09 12:55:26,312 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,313 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5dbbfa05]
+2019-05-09 12:55:26,314 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,314 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@14cb5250]
+2019-05-09 12:55:26,315 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,316 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3300d3bf]
+2019-05-09 12:55:26,317 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,317 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5db4e558]
+2019-05-09 12:55:26,318 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,318 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5f5d5739]
+2019-05-09 12:55:26,319 INFO  com.github.fakemongo.FongoConnection - release()
+2019-05-09 12:55:26,379 INFO  c.c.d.collector.AuditCollectorUtil - NFRR Audit Collector auditing TEST_RESULT
+2019-05-09 12:55:26,404 INFO  o.s.c.s.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@6a6da47a: startup date [Thu May 09 12:55:23 IST 2019]; root of context hierarchy

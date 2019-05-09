@@ -1,0 +1,108 @@
+2019-04-24 18:02:05,095 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:05,098 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:02:05,098 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:05,101 INFO  c.c.d.c.GitlabGitCollectorTask - Failed to retrieve data, the repo or collector is most likey misconfigured: null, 400 BAD_REQUEST
+2019-04-24 18:02:05,104 INFO  c.c.d.collector.CollectorTask - Repo Count              1        0s
+2019-04-24 18:02:05,104 INFO  c.c.d.collector.CollectorTask - New Commits             0        0s
+2019-04-24 18:02:05,104 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:02:05,115 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:05,115 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:02:05,115 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:05,116 INFO  c.c.d.collector.CollectorTask - Repo Count              1        0s
+2019-04-24 18:02:05,116 INFO  c.c.d.collector.CollectorTask - New Commits             0        0s
+2019-04-24 18:02:05,116 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:02:05,121 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:05,121 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:02:05,121 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:05,122 INFO  c.c.d.collector.CollectorTask - Repo Count              1        0s
+2019-04-24 18:02:05,122 INFO  c.c.d.collector.CollectorTask - New Commits             1        0s
+2019-04-24 18:02:05,122 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:02:05,126 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:05,126 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:02:05,126 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:05,127 INFO  c.c.d.c.GitlabGitCollectorTask - Failed to retrieve data, the repo or collector is most likey misconfigured: null, Bad
+2019-04-24 18:02:05,127 INFO  c.c.d.collector.CollectorTask - Repo Count              1        0s
+2019-04-24 18:02:05,127 INFO  c.c.d.collector.CollectorTask - New Commits             0        0s
+2019-04-24 18:02:05,127 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:02:05,130 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:05,130 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:02:05,130 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:05,131 INFO  c.c.d.collector.CollectorTask - Repo Count              1        0s
+2019-04-24 18:02:05,132 INFO  c.c.d.collector.CollectorTask - New Commits             0        0s
+2019-04-24 18:02:05,132 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:02:05,134 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:05,135 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:02:05,135 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:02:05,135 INFO  c.c.d.collector.CollectorTask - Repo Count              0        0s
+2019-04-24 18:02:05,136 INFO  c.c.d.collector.CollectorTask - New Commits             0        0s
+2019-04-24 18:02:05,136 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:02:05,318 INFO  c.c.d.gitlab.DefaultGitlabGitClient - page 1: null
+2019-04-24 18:02:05,320 INFO  c.c.d.gitlab.DefaultGitlabGitClient - page 1: null
+2019-04-24 18:02:05,322 INFO  c.c.d.gitlab.DefaultGitlabGitClient - page 1: null
+2019-04-24 18:02:05,324 INFO  c.c.d.gitlab.DefaultGitlabGitClient - page 1: null
+2019-04-24 18:02:05,326 INFO  c.c.d.gitlab.DefaultGitlabGitClient - page 1: null
+2019-04-24 18:02:05,326 INFO  c.c.d.gitlab.DefaultGitlabGitClient - page 2: null
+2019-04-24 18:02:05,365 INFO  c.c.d.gitlab.GitlabUrlUtility - Paging - Gitlab URI updated to: http://fakeurl.com?page=2
+2019-04-24 18:02:05,440 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://gitlab.com/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T12:32:05.368Z&per_page=100
+2019-04-24 18:02:05,442 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: https://gitlab.com/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T12:32:05.441Z&per_page=100
+2019-04-24 18:02:05,443 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://gitlab.com/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2016-10-26T20:08:20.920Z&per_page=100
+2019-04-24 18:02:05,445 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://customhost.com/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T12:32:05.445Z&per_page=100
+2019-04-24 18:02:05,447 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://customhost.com/gitlab/is/here/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T12:32:05.446Z&per_page=100
+2019-04-24 18:02:05,448 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://customhost.com:443/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T12:32:05.448Z&per_page=100
+2019-04-24 18:02:05,450 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://gitlab.com/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-14T12:32:05.449Z&per_page=100
+2019-04-24 18:02:05,451 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://gitlab.com/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T12:32:05.451Z&per_page=100
+2019-04-24 18:02:05,453 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://gitlab.com/api/v3/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T12:32:05.452Z&per_page=100
+2019-04-24 18:41:30,577 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:30,580 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:41:30,580 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:30,584 INFO  c.c.d.c.GitlabGitCollectorTask - Failed to retrieve data, the repo or collector is most likey misconfigured: null, 400 BAD_REQUEST
+2019-04-24 18:41:30,587 INFO  c.c.d.collector.CollectorTask - Repo Count              1        0s
+2019-04-24 18:41:30,587 INFO  c.c.d.collector.CollectorTask - New Commits             0        0s
+2019-04-24 18:41:30,587 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:41:30,598 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:30,598 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:41:30,598 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:30,599 INFO  c.c.d.collector.CollectorTask - Repo Count              1        0s
+2019-04-24 18:41:30,599 INFO  c.c.d.collector.CollectorTask - New Commits             0        0s
+2019-04-24 18:41:30,599 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:41:30,604 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:30,605 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:41:30,605 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:30,606 INFO  c.c.d.collector.CollectorTask - Repo Count              1        0s
+2019-04-24 18:41:30,606 INFO  c.c.d.collector.CollectorTask - New Commits             1        0s
+2019-04-24 18:41:30,606 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:41:30,610 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:30,610 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:41:30,610 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:30,611 INFO  c.c.d.c.GitlabGitCollectorTask - Failed to retrieve data, the repo or collector is most likey misconfigured: null, Bad
+2019-04-24 18:41:30,611 INFO  c.c.d.collector.CollectorTask - Repo Count              1        0s
+2019-04-24 18:41:30,611 INFO  c.c.d.collector.CollectorTask - New Commits             0        0s
+2019-04-24 18:41:30,611 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:41:30,614 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:30,615 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:41:30,615 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:30,616 INFO  c.c.d.collector.CollectorTask - Repo Count              1        0s
+2019-04-24 18:41:30,616 INFO  c.c.d.collector.CollectorTask - New Commits             0        0s
+2019-04-24 18:41:30,617 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:41:30,619 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:30,619 INFO  c.c.d.collector.CollectorTask - Starting...
+2019-04-24 18:41:30,620 INFO  c.c.d.collector.CollectorTask - -----------------------------------
+2019-04-24 18:41:30,620 INFO  c.c.d.collector.CollectorTask - Repo Count              0        0s
+2019-04-24 18:41:30,620 INFO  c.c.d.collector.CollectorTask - New Commits             0        0s
+2019-04-24 18:41:30,620 INFO  c.c.d.collector.CollectorTask - Finished                         0s
+2019-04-24 18:41:30,797 INFO  c.c.d.gitlab.DefaultGitlabGitClient - page 1: null
+2019-04-24 18:41:30,801 INFO  c.c.d.gitlab.DefaultGitlabGitClient - page 1: null
+2019-04-24 18:41:30,803 INFO  c.c.d.gitlab.DefaultGitlabGitClient - page 1: null
+2019-04-24 18:41:30,806 INFO  c.c.d.gitlab.DefaultGitlabGitClient - page 1: null
+2019-04-24 18:41:30,808 INFO  c.c.d.gitlab.DefaultGitlabGitClient - page 1: null
+2019-04-24 18:41:30,808 INFO  c.c.d.gitlab.DefaultGitlabGitClient - page 2: null
+2019-04-24 18:41:30,849 INFO  c.c.d.gitlab.GitlabUrlUtility - Paging - Gitlab URI updated to: http://fakeurl.com?page=2
+2019-04-24 18:41:30,937 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://gitlab.com/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T13:11:30.855Z&per_page=100
+2019-04-24 18:41:30,941 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: https://gitlab.com/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T13:11:30.940Z&per_page=100
+2019-04-24 18:41:30,943 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://gitlab.com/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2016-10-26T20:08:20.920Z&per_page=100
+2019-04-24 18:41:30,944 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://customhost.com/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T13:11:30.944Z&per_page=100
+2019-04-24 18:41:30,946 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://customhost.com/gitlab/is/here/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T13:11:30.945Z&per_page=100
+2019-04-24 18:41:30,947 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://customhost.com:443/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T13:11:30.947Z&per_page=100
+2019-04-24 18:41:30,949 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://gitlab.com/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-14T13:11:30.949Z&per_page=100
+2019-04-24 18:41:30,951 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://gitlab.com/api/v4/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T13:11:30.951Z&per_page=100
+2019-04-24 18:41:30,954 INFO  c.c.d.gitlab.GitlabUrlUtility - ---> Gitlab URI: http://gitlab.com/api/v3/projects/namespace%2FHygieia/repository/commits/?ref_name=master&since=2019-04-10T13:11:30.954Z&per_page=100

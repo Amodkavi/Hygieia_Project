@@ -1,0 +1,17 @@
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/model/ArtifactoryRepo.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/model/RepoAndPattern.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/model/BaseArtifact.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/model/ArtifactItem.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/repository/ArtifactoryCollectorRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/Application.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/repository/ArtifactoryRepoRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/util/ArtifactUtil.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/collector/RestOperationsSupplier.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/model/ArtifactoryCollectionMode.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/model/ArtifactoryCollector.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/collector/DefaultArtifactoryClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/model/ServerSetting.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/collector/ArtifactoryClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/collector/ArtifactorySettings.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/repository/ArtifactItemRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/artifact/artifactory/src/main/java/com/capitalone/dashboard/collector/ArtifactoryCollectorTask.java

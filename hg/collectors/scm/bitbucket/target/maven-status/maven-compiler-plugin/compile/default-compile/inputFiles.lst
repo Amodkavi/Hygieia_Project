@@ -1,0 +1,9 @@
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/bitbucket/src/main/java/com/capitalone/dashboard/repository/GitRepoRepository.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/bitbucket/src/main/java/com/capitalone/dashboard/collector/GitSettings.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/bitbucket/src/main/java/com/capitalone/dashboard/model/GitRepo.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/bitbucket/src/main/java/com/capitalone/dashboard/collector/GitCollectorTask.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/bitbucket/src/main/java/com/capitalone/dashboard/collector/DefaultBitbucketServerClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/bitbucket/src/main/java/com/capitalone/dashboard/collector/RestOperationsSupplier.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/bitbucket/src/main/java/com/capitalone/dashboard/collector/GitClient.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/bitbucket/src/main/java/com/capitalone/dashboard/Application.java
+/Users/akavi/HPSE/Hygieia_POC/Hygieia/collectors/scm/bitbucket/src/main/java/com/capitalone/dashboard/collector/DefaultBitbucketCloudClient.java
